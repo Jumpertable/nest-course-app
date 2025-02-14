@@ -36,4 +36,11 @@ export class AppService {
       favouritefood: 'lasagne',
     };
   }
+  showJSON2(){
+    return{
+    name: 'Aloisia',
+    lastname: 'Sunsial',
+    age: 22,
+  };
+}
 }

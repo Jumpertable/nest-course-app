@@ -21,4 +21,8 @@ export class AppController {
   getJSON(){
     return this.appService.getJSON();
   }
+  @Get('/ShowJSON2') //localhost:3000/showJSON2
+  showJSON2(){
+    return this.appService.showJSON2();
+  }
 }
