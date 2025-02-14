@@ -1,0 +1,39 @@
+import { Injectable } from '@nestjs/common';
+
+@Injectable()
+export class AppService {
+  getHello(): string {
+    return 'Shout out to Yume Nikki! We love girlrotting!';
+  }
+  getGoodbye(): string{
+    return 'The road will end and you will look out to the sea again';
+  }
+  getName(): string{
+    return 'Charlotte Hand.';
+  }
+  getJim(): string{
+    let x: number = 6;
+    let y: number = 76;
+    let z: number = x * y;
+    return `${z}`;
+  }
+  getInfo(): string{
+    return 'I am very sleepy but I know that I will not sleep when I get home :p.';
+  }
+  showInfo(): string{
+    let x: number = 22;
+    return `I am Charlotte Hand, ${x} years old`;  
+  }
+  getJSON(){
+    return{
+      name: 'Robin',
+      lastname: 'Donkeyskin',
+      age: 22,
+      hobby: 'watching movies',
+      occupation: 'student',
+      address: 'Phuket',
+      favouriteplace: 'bed',
+      favouritefood: 'lasagne',
+    };
+  }
+}
