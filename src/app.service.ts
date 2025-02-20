@@ -12,9 +12,9 @@ export class AppService {
     return 'Charlotte Hand.';
   }
   getJim(): string{
-    let x: number = 6;
-    let y: number = 76;
-    let z: number = x * y;
+    const x: number = 6;
+    const y: number = 76;
+    const z: number = x * y;
     return `${z}`;
   }
   getInfo(): string{
@@ -38,9 +38,12 @@ export class AppService {
   }
   showJSON2(){
     return{
-    name: 'Aloisia',
-    lastname: 'Sunsial',
-    age: 22,
+      name: 'Aloisia',
+      lastname: 'Sunsial',
+      age: 22,
   };
+}
+  usePostman() {
+    return 'We use Postman.';
 }
 }

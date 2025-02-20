@@ -3,6 +3,9 @@ import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
+  getHello(): any {
+    throw new Error('Method not implemented.');
+  }
   constructor(private readonly appService: AppService) {}
 
   @Get('/name')
@@ -24,5 +27,9 @@ export class AppController {
   @Get('/ShowJSON2') //localhost:3000/showJSON2
   showJSON2(){
     return this.appService.showJSON2();
+  }
+  @Get('/usePostman')
+  usePostman(){
+    return this.appService.usePostman();
   }
 }
