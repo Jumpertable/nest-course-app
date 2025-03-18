@@ -5,27 +5,27 @@ export class AppService {
   getHello(): string {
     return 'Shout out to Yume Nikki! We love girlrotting!';
   }
-  getGoodbye(): string{
+  getGoodbye(): string {
     return 'The road will end and you will look out to the sea again';
   }
-  getName(): string{
+  getName(): string {
     return 'Charlotte Hand.';
   }
-  getJim(): string{
+  getJim(): string {
     const x: number = 6;
     const y: number = 76;
     const z: number = x * y;
     return `${z}`;
   }
-  getInfo(): string{
+  getInfo(): string {
     return 'I am very sleepy but I know that I will not sleep when I get home :p.';
   }
-  showInfo(): string{
+  showInfo(): string {
     let x: number = 22;
-    return `I am Charlotte Hand, ${x} years old`;  
+    return `I am Charlotte Hand, ${x} years old`;
   }
-  getJSON(){
-    return{
+  getJSON() {
+    return { 
       name: 'Robin',
       lastname: 'Donkeyskin',
       age: 22,
@@ -36,8 +36,8 @@ export class AppService {
       favouritefood: 'lasagne',
     };
   }
-  showJSON2(){
-    return{
+  showJSON2() {
+    return {
       name: 'Aloisia',
       lastname: 'Sunsial',
       age: 22,

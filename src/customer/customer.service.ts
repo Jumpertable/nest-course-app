@@ -1,26 +1,50 @@
 import { Injectable } from '@nestjs/common';
 import { CreateCustomerDto } from './dto/create-customer.dto';
 import { UpdateCustomerDto } from './dto/update-customer.dto';
+import { Customer } from './entities/customer.entity';
+import { InjectModel } from '@nestjs/sequelize';
 
 @Injectable()
 export class CustomerService {
-  create(createCustomerDto: CreateCustomerDto) {
-    return 'This action adds a new customer';
+  constructor(
+    @InjectModel(Customer)
+    private customerModel: typeof Customer,
+  ) {}
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async create(createCustomerDto: CreateCustomerDto) {
+    return await this.customerModel.create(
+      createCustomerDto as Partial<Customer>,
+    );
   }
 
-  findAll() {
-    return `This action returns all customer`;
+  async findAll() {
+    return await this.customerModel.findAll({
+      order: [['id', 'asc']],
+    });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} customer`;
+  async findOne(id: number) {
+    return await this.customerModel.findByPk(id);
   }
 
-  update(id: number, updateCustomerDto: UpdateCustomerDto) {
-    return `This action updates a #${id} customer`;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async update(id: number, updateCustomerDto: UpdateCustomerDto) {
+    return await this.customerModel.update(updateCustomerDto, {
+      where: { id: id }
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} customer`;
+  async remove(id: number) {
+    return await this.customerModel.destroy({
+      where: { id: id},
+    });
+  }
+
+  async findFullname(fullname: string){
+    return await this.customerModel.findOne({
+      where: {
+        fullname: fullname,
+      },
+    });
   }
 }

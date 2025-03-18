@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Render } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -13,23 +13,30 @@ export class AppController {
     return this.appService.getName();
   }
   @Get('/Jim')
-  getJim(): string{
+  getJim(): string {
     return this.appService.getJim();
   }
   @Get('/Info')
-  showInfo(): string{
+  @Render('index')
+  showInfo(): string {
     return this.appService.showInfo();
   }
   @Get('/showJSON')
-  getJSON(){
+  @Render('index')
+  getJSON() {
     return this.appService.getJSON();
   }
   @Get('/ShowJSON2') //localhost:3000/showJSON2
-  showJSON2(){
+  showJSON2() {
     return this.appService.showJSON2();
   }
   @Get('/usePostman')
-  usePostman(){
+  usePostman() {
     return this.appService.usePostman();
+  }
+  @Get('/getJson2')
+  @Render('index')
+  getJson2() {
+    return this.appService.getJson2();
   }
 }
