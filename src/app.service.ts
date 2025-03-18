@@ -41,9 +41,17 @@ export class AppService {
       name: 'Aloisia',
       lastname: 'Sunsial',
       age: 22,
-  };
-}
+    };
+  }
   usePostman() {
     return 'We use Postman.';
-}
+  }
+  getJson2() {
+    return {
+      name: 'Charlotte',
+      lastname: 'Hand',
+      age: 22,
+      version: process.env.API_VERSION,
+    };
+  }
 }
