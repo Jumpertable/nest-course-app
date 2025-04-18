@@ -40,12 +40,6 @@ import { AuthUser } from './auth/entities/auth.entity';
     UserInfoModule,
     AuthModule,
   ],
-  /* get imports() {
-    return this._imports;
-  },
-  set imports(value) {
-    this._imports = value;
-  },*/
   controllers: [AppController],
   providers: [AppService],
 })

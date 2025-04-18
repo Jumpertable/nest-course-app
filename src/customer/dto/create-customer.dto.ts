@@ -1,4 +1,7 @@
 export class CreateCustomerDto {
-  fullname: string;
-  isAcrive: boolean;
+  name: string;
+  isActive: boolean;
+  position: string;
+  email: string;
+  phone: string;
 }
