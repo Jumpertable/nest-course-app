@@ -14,7 +14,6 @@ import { CreateCustomerDto } from './dto/create-customer.dto';
 import { UpdateCustomerDto } from './dto/update-customer.dto';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
-
 @Controller('customer') // localhost:3000/customer
 export class CustomerController {
   constructor(private readonly customerService: CustomerService) {}
@@ -56,11 +55,11 @@ export class CustomerController {
     return _name;
   }
 
-
   @Patch('/:id') // localhost:3000/customer/:id
   async update(
     @Param('id') id: string,
-    @Body() updateCustomerDto: UpdateCustomerDto,) {
+    @Body() updateCustomerDto: UpdateCustomerDto,
+  ) {
     const [updateCustomer] = await this.customerService.update(
       +id,
       updateCustomerDto,

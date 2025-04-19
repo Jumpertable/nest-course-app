@@ -4,7 +4,6 @@ import { Column, DataType, Model, Table } from 'sequelize-typescript';
   tableName: 'customers',
   timestamps: false,
 })
-
 export class Customer extends Model {
   @Column({
     type: DataType.STRING(200),

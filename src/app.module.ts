@@ -16,6 +16,7 @@ import { UserInfoModule } from './user-info/user-info.module';
 import { UserInfo } from './user-info/entities/user-info.entity';
 import { AuthModule } from './auth/auth.module';
 import { AuthUser } from './auth/entities/auth.entity';
+import { MusicModule } from './music/music.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -39,6 +40,7 @@ import { AuthUser } from './auth/entities/auth.entity';
     CustomerModule,
     UserInfoModule,
     AuthModule,
+    MusicModule,
   ],
   controllers: [AppController],
   providers: [AppService],
