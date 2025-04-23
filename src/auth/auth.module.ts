@@ -10,7 +10,8 @@ import { JwtStrategy } from './jwt.strategy';
   imports: [
     PassportModule,
     JwtModule.register({
-      signOptions: { expiresIn: '1d' },
+      secret: process.env.JWT_SECRET_KEY,
+      signOptions: { expiresIn: '4h' },
     }),
     SequelizeModule.forFeature([AuthUser]),
   ],

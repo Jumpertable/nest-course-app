@@ -1,9 +1,9 @@
 import {
   Body,
   Controller,
+  Get,
   HttpCode,
   Post,
-  Get,
   UseGuards,
   Request,
 } from '@nestjs/common';
@@ -16,8 +16,8 @@ import { JwtAuthGuard } from './jwt-auth.guard';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @Post('/register') //localhost:3000/auth/register
-  @HttpCode(201) //where register complete
+  @Post('/regist') // localhost:3000/auth/regist
+  @HttpCode(201) // show code 201, when register complete
   async register(@Body() registerDto: RegisterDto) {
     await this.authService.register(registerDto);
     return {
@@ -25,16 +25,21 @@ export class AuthController {
     };
   }
 
-  @Post('/login') //localhost:3000/auth/login
-  @HttpCode(200)
+  @Post('/login') // localhost:3000/auth/login
+  @HttpCode(200) // show code 200, when login complete
   async login(@Body() loginDto: LoginDto) {
     return await this.authService.login(loginDto);
   }
 
-  @UseGuards(JwtAuthGuard)
-  @Get('/profile') //localhost:3000/auth/profile
-  async getUserProfile(@Request() req) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    return await this.authService.getUserProfile(Number(req.user.user_id));
+  @UseGuards(JwtAuthGuard) // protect route and check token
+  @Get('/profile') // localhost:3000/auth/profile
+  async getProfile(@Request() req: any) {
+    return await this.authService.getUsertProfile(Number(req.user.user_id));
+  }
+
+  @UseGuards(JwtAuthGuard) // Optional: restrict this to logged-in users
+  @Get('/all') // localhost:3000/auth/all
+  async getAllUsers() {
+    return await this.authService.getAllUsers();
   }
 }

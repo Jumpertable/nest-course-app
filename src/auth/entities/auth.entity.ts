@@ -1,10 +1,7 @@
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
-@Table({
-  tableName: 'auth_user',
-  timestamps: false,
-})
-export class AuthUser extends Model{
+@Table
+export class AuthUser extends Model<AuthUser> {
   @Column({
     type: DataType.STRING(200),
     allowNull: false,
@@ -19,8 +16,8 @@ export class AuthUser extends Model{
   email: string;
 
   @Column({
-    type: DataType.TEXT,
-    defaultValue: false,
+    type: DataType.STRING,
+    allowNull: false,
   })
   password: string;
 }
